@@ -1,4 +1,4 @@
-# GL7 · Incident readiness
+# GL9 · Incident readiness
 
 > **Outcome:** A one-page plan, written on a quiet day, tells whoever is on call at 2 AM who decides, who to call, where the evidence is, how to shut a door, and which clocks have started ticking.
 
@@ -112,7 +112,7 @@ Keep a printed or offline copy. If you're reading this during an incident, go st
 | Obligation | Deadline | Owner |
 | --- | --- | --- |
 | Notifiable Data Breaches | Assess within 30 days; notify as soon as practicable | [name] |
-| Ransomware or extortion payment (turnover $3M+ or critical infrastructure) | Report to ASD within 72 hours | [name] |
+| Ransomware or extortion payment (turnover above $3 million, or critical infrastructure) | Report to ASD within 72 hours | [name] |
 | SOCI critical infrastructure | 12 hours (significant impact), 72 hours (relevant impact) | [name] |
 
 *Not legal advice. Confirm which obligations apply to you with your legal team.*
@@ -145,7 +145,7 @@ Keep a printed or offline copy. If you're reading this during an incident, go st
 | Obligation | Timeframe | Applies to |
 | --- | --- | --- |
 | Privacy Act, Notifiable Data Breaches scheme | Assess a suspected eligible data breach within 30 days, and notify as soon as practicable | APP entities |
-| Cyber Security Act 2024, ransomware payment reporting | Report a ransomware or extortion payment to ASD within 72 hours | Businesses with annual turnover of $3M or more, and responsible entities for critical infrastructure assets under Part 2B of the SOCI Act |
+| Cyber Security Act 2024, ransomware payment reporting | Report a ransomware or extortion payment to ASD within 72 hours | Businesses with annual turnover above $3 million, and responsible entities for critical infrastructure assets under Part 2B of the SOCI Act |
 | SOCI Act, mandatory cyber incident reporting | 12 hours for significant impact, 72 hours for relevant impact | Responsible entities for critical infrastructure assets |
 
 *Not legal advice. Check your obligations with your legal team.*
@@ -159,7 +159,7 @@ Keep a printed or offline copy. If you're reading this during an incident, go st
 | GitHub | Revoke a personal access token or deploy key; suspend a GitHub App installation; rotate repository and organisation secrets |
 | Azure DevOps | Revoke personal access tokens; disable a service connection; pause a pipeline |
 | GitLab | Revoke personal, project or group access tokens; rotate CI/CD variables |
-| AWS | Deactivate an access key (`aws iam update-access-key --status Inactive`); revoke active role sessions; restrict a security group |
+| AWS | Deactivate an access key (`aws iam update-access-key --access-key-id <key id> --status Inactive`); revoke active role sessions; restrict a security group |
 | Azure | Disable the account in Entra ID and revoke its sessions; rotate a service principal secret; apply a network security group rule |
 | Google Cloud | Disable a service account or its key; tighten a firewall rule |
 | Microsoft 365 / Entra ID | Revoke a user's sessions (`Revoke-MgUserSignInSession`); disable an enterprise application |

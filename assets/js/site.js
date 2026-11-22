@@ -8,15 +8,17 @@
     { id: 'practices/01-ownership', gl: 'GL1', title: 'Ownership', icon: 'usercheck' },
     { id: 'practices/02-identity-and-access', gl: 'GL2', title: 'Identity and access', icon: 'fingerprint' },
     { id: 'practices/03-ai-usage-rules', gl: 'GL3', title: 'AI usage rules', icon: 'bot' },
-    { id: 'practices/04-guardrailed-pipeline', gl: 'GL4', title: 'Guardrailed pipeline', icon: 'branch' },
-    { id: 'practices/05-suppliers-and-integrations', gl: 'GL5', title: 'Suppliers and integrations', icon: 'handshake' },
-    { id: 'practices/06-logging-and-evidence', gl: 'GL6', title: 'Logging and evidence', icon: 'eye' },
-    { id: 'practices/07-incident-readiness', gl: 'GL7', title: 'Incident readiness', icon: 'siren' },
-    { id: 'practices/08-monthly-review', gl: 'GL8', title: 'Monthly review', icon: 'calendar' }
+    { id: 'practices/04-secure-design', gl: 'GL4', title: 'Secure design', icon: 'layers' },
+    { id: 'practices/05-guardrailed-pipeline', gl: 'GL5', title: 'Guardrailed pipeline', icon: 'branch' },
+    { id: 'practices/06-data-protection', gl: 'GL6', title: 'Data protection', icon: 'database' },
+    { id: 'practices/07-suppliers-and-integrations', gl: 'GL7', title: 'Suppliers and integrations', icon: 'handshake' },
+    { id: 'practices/08-logging-and-evidence', gl: 'GL8', title: 'Logging and evidence', icon: 'eye' },
+    { id: 'practices/09-incident-readiness', gl: 'GL9', title: 'Incident readiness', icon: 'siren' },
+    { id: 'practices/10-monthly-review', gl: 'GL10', title: 'Monthly review', icon: 'calendar' }
   ];
   var NAV = [
     { h: 'Start here', items: [['overview', 'Overview'], ['adopt-in-30-days', 'Adopt in 30 days'], ['maturity-levels', 'Maturity levels'], ['self-check', 'Self-check']] },
-    { h: 'The eight practices', items: PRACTICES.map(function (p) { return [p.id, p.title, p.gl]; }) },
+    { h: 'The ten practices', items: PRACTICES.map(function (p) { return [p.id, p.title, p.gl]; }) },
     { h: 'Reference', items: [['metrics', 'Metrics'], ['mappings', 'Mappings'], ['faq', 'FAQ']] }
   ];
   var ORDER = [];
@@ -275,13 +277,14 @@
       '<section class="hero"><div class="hero-in"><div>' +
       '<p class="kicker">// a mini governance framework for engineering teams</p>' +
       '<h1>Governance<span>Lite</span></h1>' +
-      '<p class="lede">Eight practices. Three levels. Thirty minutes a month. Security governance that produces its own evidence, built for teams where AI writes a lot of the code.</p>' +
+      '<p class="lede">Ten practices. Three levels. Thirty minutes a month. Security governance that produces its own evidence, built for teams where AI writes a lot of the code.</p>' +
       '<div class="cta"><a class="btn primary" href="#/adopt-in-30-days"><svg class="ico"><use href="#i-rocket"/></svg>Adopt in 30 days</a>' +
       '<a class="btn" href="#/self-check"><svg class="ico"><use href="#i-clipboard"/></svg>Take the self-check</a>' +
-      '<a class="btn ghost" href="#/overview"><svg class="ico"><use href="#i-book"/></svg>Read the framework</a></div></div>' +
+      '<a class="btn ghost" href="#/overview"><svg class="ico"><use href="#i-book"/></svg>Read the framework</a></div>' +
+      '<p class="muted" style="font-size:14.5px;max-width:600px;margin:16px 0 0"><strong>A practical start, not a replacement.</strong> GovernanceLite isn\'t a replacement for robust frameworks such as ISO/IEC 27001, SOC 2 or the NIST Cybersecurity Framework. It\'s a practical starting point for engineering teams that aren\'t chasing a certification, or that want good habits in place before they do.</p></div>' +
       '<div class="term"><div class="bar"><i></i><i></i><i></i><span>governancelite status</span></div><pre data-status><span class="d">loading…</span></pre></div></div></section>' +
 
-      '<section class="section"><h2>The eight practices</h2><p class="sub">Each one has a clear outcome, practical steps for this week, three levels, platform how-tos, a metric and a mapping to the standards you already know.</p><div class="cards" data-cards></div></section>' +
+      '<section class="section"><h2>The ten practices</h2><p class="sub">Each one has a clear outcome, practical steps for this week, three levels, platform how-tos, a metric and a mapping to the standards you already know.</p><div class="cards" data-cards></div></section>' +
 
       '<section class="section"><h2>Principles</h2><p class="sub">Six ideas that keep it light.</p><div class="principles" data-principles></div></section>' +
 
@@ -318,12 +321,12 @@
   function statusText() {
     var any = Object.keys(checks).some(function (k) { return k.indexOf('practices/') === 0; });
     var lines = ['<span class="d">$</span> <span class="w">governancelite status</span>' + (any ? '' : '   <span class="d"># example team</span>')];
-    var example = [2, 1, 1, 2, 0, 1, 1, 1];
+    var example = [2, 1, 1, 1, 2, 1, 0, 1, 1, 1];
     PRACTICES.forEach(function (p, i) {
       var lv = any ? levelOf(practiceTasks[p.id]) : example[i];
       var bar = '', cls = ['d', 'a', 't', 'g'][lv];
       for (var k = 1; k <= 3; k++) bar += k <= lv ? '■' : '□';
-      lines.push('<span class="g">' + p.gl + '</span>  ' + (p.title + '                          ').slice(0, 27) + '<span class="' + cls + '">' + bar + '</span>  <span class="' + cls + '">' + LEVEL_NAMES[lv] + '</span>');
+      lines.push('<span class="g">' + (p.gl + ' ').slice(0, 4) + '</span>  ' + (p.title + '                          ').slice(0, 27) + '<span class="' + cls + '">' + bar + '</span>  <span class="' + cls + '">' + LEVEL_NAMES[lv] + '</span>');
     });
     lines.push('');
     lines.push('<span class="d">next:</span> raise <span class="a">' + (function () {
@@ -354,7 +357,7 @@
         '<div class="md"><h1>Self-check</h1><p>Tick what your team does <strong>today</strong>, not what\'s planned. A practice reaches a level when every item at that level and below is done. Your answers are saved only in this browser. Nothing is sent anywhere.</p></div>' +
         '<div class="sc-summary"><div class="sc-profile" data-profile></div><div class="sc-side"><div><div class="big" data-total>0%</div><div class="muted" style="font-size:14px">of all items done</div></div><code data-profile-str></code>' +
         '<div style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" class="btn sm primary" data-export-copy><svg class="ico"><use href="#i-copy"/></svg>Copy as Markdown</button><button type="button" class="btn sm" data-export-dl><svg class="ico"><use href="#i-download"/></svg>Download .md</button><button type="button" class="btn sm ghost" data-reset>Reset</button></div>' +
-        '<p class="muted" style="font-size:13px;margin:0">Paste the export into your <a href="#/practices/08-monthly-review">monthly review</a> minutes each quarter.</p></div></div>' +
+        '<p class="muted" style="font-size:13px;margin:0">Paste the export into your <a href="#/practices/10-monthly-review">monthly review</a> minutes each quarter.</p></div></div>' +
         body + '</article>';
       paintSelfCheck();
       if (!view.dataset.scWired) { view.addEventListener('change', onScChange); view.dataset.scWired = '1'; }
@@ -438,7 +441,7 @@
     buildSide(r.route);
     if (!r.route) return renderHome();
     if (r.route === 'self-check') return renderSelfCheck();
-    if (r.route === 'practices') { location.replace('#/overview?h=the-eight-practices'); return; }
+    if (r.route === 'practices') { location.replace('#/overview?h=the-ten-practices'); return; }
     renderDoc(r.route, r.anchor);
   }
   window.addEventListener('hashchange', route);

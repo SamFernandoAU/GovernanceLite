@@ -6,7 +6,7 @@
 
 Most incidents still start with a login: a saved browser password, an infostealer, or a remote-access service that accepted a username and password with no MFA. In 2024, attackers logged into around 165 organisations' Snowflake accounts with passwords stolen by infostealers, some from 2020. The platform held; the accounts had no MFA and no network allow-lists. Cloud and SaaS providers secure their platforms. Who can log in to your tenant is your half of the shared responsibility model.
 
-Access also outlives its purpose. Contractor accounts survive the contract, guest accounts survive the project, and personal access tokens survive the person who made them. Long-lived secrets are the same problem in another form: most leaked secrets are never rotated, and internal repositories leak more of them than public ones. The best secret is one that doesn't exist, so prefer federated, short-lived credentials over stored keys wherever you can.
+Access also outlives its purpose. Contractor accounts survive the contract, guest accounts survive the project, and personal access tokens survive the person who made them. Long-lived secrets are the same problem in another form: GitGuardian found most leaked secrets are still valid years later (64% of valid secrets found in 2022 were still active in 2026), and internal repositories are about six times more likely than public ones to contain them. The best secret is one that doesn't exist, so prefer federated, short-lived credentials over stored keys wherever you can.
 
 ## Who's involved
 
@@ -65,7 +65,7 @@ Access also outlives its purpose. Contractor accounts survive the contract, gues
 ## Leaked-secret runbook
 
 1. **Revoke and rotate.** A revoked secret is useless to whoever copied it.
-2. **Check usage** in the provider's audit logs for the key's whole lifetime. Decide whether it's now an incident ([GL7](07-incident-readiness.md)).
+2. **Check usage** in the provider's audit logs for the key's whole lifetime. Decide whether it's now an incident ([GL9](09-incident-readiness.md)).
 3. **Find the siblings**: `trufflehog git file://. --only-verified`
 4. **Clean up** history and caches if you must. That's hygiene, not remediation.
 5. **Prevent the next one** with a pre-commit hook and push protection.
@@ -96,7 +96,7 @@ Continuous (SSO, MFA, push protection) · on leaving (automated) · quarterly ac
 ## Common pitfalls
 
 - **Assuming the provider covers logins.** Providers secure the platform; you configure who can sign in to your tenant. Read the shared responsibility matrix for every service you use.
-- **Treating MFA as the finish line.** MFA protects the login, not a stolen session cookie or token. Shorten sessions and review OAuth grants ([GL5](05-suppliers-and-integrations.md)).
+- **Treating MFA as the finish line.** MFA protects the login, not a stolen session cookie or token. Shorten sessions and review OAuth grants ([GL7](07-suppliers-and-integrations.md)).
 - **Trusting the network.** A VPN or private network is just another login. Authenticate every service as if it were public.
 - **Cleaning history instead of rotating.** Rewriting Git history doesn't un-leak a secret. Rotate first.
 - **Agents borrowing human tokens.** Give agents their own identities from day one.

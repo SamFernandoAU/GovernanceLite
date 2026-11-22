@@ -22,25 +22,25 @@ None of this is a reason to stop using AI. It's a reason to give AI the same gua
 1. Write a one-page AI usage rule (see the template below) and link it from the repository template.
 2. List the AI tools people already use. Approve the good ones now, so nobody needs a workaround.
 3. Add AI, agent and MCP configuration files to secret scanning.
-4. Confirm branch protection stops agents from merging to protected branches on their own ([GL4](04-guardrailed-pipeline.md)).
+4. Confirm branch protection stops agents from merging to protected branches on their own ([GL5](05-guardrailed-pipeline.md)).
 
 ## Level 1 · Baseline
 
 - [ ] A one-page AI usage rule is published and linked from the engineering handbook and the repository template
 - [ ] There's an approved list of AI assistants, models, MCP servers and IDE extensions, and anything else needs a request
 - [ ] A data rule: no customer personal data, production secrets or credentials in prompts, context files or agent memory unless the tool is approved for that data
-- [ ] AI-generated code goes through the same pipeline checks, and a human reviews and merges it ([GL4](04-guardrailed-pipeline.md))
+- [ ] AI-generated code goes through the same pipeline checks, and a human reviews and merges it ([GL5](05-guardrailed-pipeline.md))
 
 ## Level 2 · Established
 
 - [ ] Agents have their own scoped identities ([GL2](02-identity-and-access.md)) and can't merge to protected branches or deploy to production unattended
 - [ ] Packages an AI suggests are checked before install: does it exist, is it established, does it have a real repository?
 - [ ] MCP and agent configuration files are scanned for secrets, and keys are referenced from the secrets manager
-- [ ] Agent actions that change things (tool calls, commits, deployments, data changes) are logged under the agent's identity ([GL6](06-logging-and-evidence.md))
+- [ ] Agent actions that change things (tool calls, commits, deployments, data changes) are logged under the agent's identity ([GL8](08-logging-and-evidence.md))
 
 ## Level 3 · Evidenced
 
-- [ ] AI vendors are in the supplier register with data-use and model-training terms reviewed ([GL5](05-suppliers-and-integrations.md))
+- [ ] AI vendors are in the supplier register with data-use and model-training terms reviewed ([GL7](07-suppliers-and-integrations.md))
 - [ ] The approved list is reviewed every quarter, and exceptions are recorded with an owner and an expiry
 - [ ] If AI is central to your product or delivery, you've assessed yourself against ISO/IEC 42001 (AI management systems)
 

@@ -1,6 +1,6 @@
-# GL8 · Monthly review
+# GL10 · Monthly review
 
-> **Outcome:** Once a month, a 30-minute review looks at risks, a few metrics, and actions with owners and dates. This loop keeps the other seven practices alive, and its minutes become your governance evidence.
+> **Outcome:** Once a month, a 30-minute review looks at risks, a few metrics, and actions with owners and dates. This loop keeps the other nine practices alive, and its minutes become your governance evidence.
 
 ## Why it matters
 

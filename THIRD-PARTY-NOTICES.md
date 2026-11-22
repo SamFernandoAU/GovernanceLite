@@ -1,6 +1,6 @@
 # Third-party notices
 
-GovernanceLite's website includes icons from **Lucide** (https://lucide.dev), embedded as an inline SVG sprite in `index.html`. Twenty icons are used, including some that Lucide derives from the Feather project.
+GovernanceLite's website includes icons from **Lucide** (https://lucide.dev), embedded as an inline SVG sprite in `index.html`. Twenty-two icons are used, including some that Lucide derives from the Feather project.
 
 Lucide's licence follows in full.
 

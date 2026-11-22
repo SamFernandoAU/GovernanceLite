@@ -1,4 +1,4 @@
-# GL4 · Guardrailed pipeline
+# GL5 · Guardrailed pipeline
 
 > **Outcome:** Every change to code, configuration and infrastructure reaches production through a protected path. A human merges, and fast automated checks catch what humans miss, including what the change exposes.
 

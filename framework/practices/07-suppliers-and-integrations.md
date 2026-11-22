@@ -1,10 +1,10 @@
-# GL5 · Suppliers and integrations
+# GL7 · Suppliers and integrations
 
 > **Outcome:** You know which third parties, SaaS integrations, OAuth apps, extensions and AI vendors can touch your code or data, and who owns each one. Anything nobody can explain gets removed.
 
 ## Why it matters
 
-Almost half of breaches now involve a third party (48% in the 2026 Verizon DBIR, up from 30% the year before). A forgotten integration is a standing door into your systems. In the Salesloft Drift campaign, attackers stole the OAuth tokens of a chat app many companies had connected to their CRM years earlier. Because the tokens belonged to a trusted app, MFA never came into play, and more than 700 organisations were potentially affected. Browser and IDE extensions follow the same pattern: trusted for years, then malicious after one update.
+Almost half of breaches now involve a third party (48% in the 2026 Verizon DBIR, up from 30% the year before). A forgotten integration is a standing door into your systems. In the Salesloft Drift campaign, attackers stole the OAuth tokens of a chat app many companies had connected to their CRM. Because the tokens belonged to a trusted app, MFA never came into play, and more than 700 organisations were potentially affected. Browser and IDE extensions follow the same pattern: trusted for years, then malicious after one update.
 
 Every "Allow" button grants access that lasts until someone takes it away.
 

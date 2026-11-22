@@ -1,4 +1,4 @@
-# GL6 · Logging and evidence
+# GL8 · Logging and evidence
 
 > **Outcome:** For any sensitive system, you can answer who did what, to which record, when and from where, for humans and agents alike. The logs exist before you need them.
 
